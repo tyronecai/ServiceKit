@@ -25,7 +25,7 @@ class ExampleServer extends HttpServer {
         }
         System.out.println("server exit");
       } catch (Exception ex) {
-        System.out.println("server start fail");
+        System.out.println("server start fail " + ex);
       }
     }
 
@@ -33,5 +33,10 @@ class ExampleServer extends HttpServer {
     @Service
     public String hi() {
       return "Hello, world!";
+    }
+
+    @Service({"name"})
+    public String name(String name) {
+      return "Hello, " + name + "!";
     }
 }
